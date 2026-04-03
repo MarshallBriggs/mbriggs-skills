@@ -28,7 +28,20 @@ Autonomous UX playtesting using Playwright MCP. Simulates user personas navigati
 - Structured output: per-task reports, UX debrief, bug rollup, SWOP analysis, priority action list
 - Token-efficient: uses accessibility snapshots for navigation, screenshots only for reports
 
-**Customization:** Create `.claude/playtest/config.md` in your project with your app's URLs, then optionally add custom personas and competitive landscape. See [templates/playtest/project_setup_guide.md](templates/playtest/project_setup_guide.md) for details.
+**Customization:**
+
+The skill works out of the box with generic personas, but you'll get much better results by customizing it for your product. Templates are included to help you get started:
+
+| What | Template | Override path |
+|------|----------|---------------|
+| App config (required) | — | `.claude/playtest/config.md` |
+| Custom personas | [persona_template.md](skills/playtest/templates/persona_template.md) | `.claude/playtest/personas/*.md` |
+| Competitive landscape | [competitive_landscape_template.md](skills/playtest/templates/competitive_landscape_template.md) | `.claude/playtest/competitive_landscape.md` |
+| Evaluation framework | — | `.claude/playtest/evaluation_framework.md` |
+
+See the full [project setup guide](skills/playtest/templates/project_setup_guide.md) for step-by-step instructions.
+
+> **Tip:** If you run `/mbriggs-skills:playtest` without a config file, the skill will walk you through setup and offer to scaffold the override files for you.
 
 ## Adding Skills
 

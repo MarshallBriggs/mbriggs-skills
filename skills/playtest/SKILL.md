@@ -24,7 +24,7 @@ If `.claude/playtest/evaluation_framework.md` exists, use it exclusively. Otherw
 If `.claude/playtest/competitive_landscape.md` exists, use it exclusively. Otherwise use this skill's `competitive_landscape.md`.
 
 ### Project Config
-Read `.claude/playtest/config.md` if it exists. This file provides project-specific settings (see Project Configuration below). If no config.md exists, ask the user for the frontend URL and app name before proceeding.
+Read `.claude/playtest/config.md` if it exists. This file provides project-specific settings (see Project Configuration below). If no config.md exists, run the First-Time Setup flow (see below) before proceeding.
 
 ## Project Configuration
 
@@ -38,10 +38,54 @@ The optional `.claude/playtest/config.md` file can contain any of the following.
 - **Output directory** — where to write playtest reports (default: `docs/playtests/runs/`)
 - **Real-world scenario test** — a time-pressured realistic scenario that defines success for this product (e.g., "Can a user accomplish X within Y minutes under real conditions?"). Used in cross-persona evaluation.
 
+## First-Time Setup
+
+**This flow runs automatically when no `.claude/playtest/config.md` is found in the project.** It walks the user through creating their project-local override files so future playtests are properly configured.
+
+### Step A: Explain what's needed
+
+Tell the user:
+
+> This is your first playtest in this project. I'll help you set up a config file and optionally create custom personas and a competitive landscape. This only needs to happen once — future runs will use the files we create now.
+>
+> At minimum, I need your app's frontend URL to run a playtest. But you'll get much better results if you also create personas that match your real target users and a competitive landscape document.
+
+### Step B: Collect config information
+
+Ask the user (in a single AskUserQuestion prompt) for:
+
+1. **App name** — what's the product called?
+2. **Frontend URL** — where is the app running? (e.g., `http://localhost:3000`)
+3. **Backend URL** _(optional)_ — health check endpoint, if applicable
+4. **Reset endpoint or instructions** _(optional)_ — how to reset to a clean state for testing
+5. **Output directory** _(optional)_ — where to write playtest reports (default: `docs/playtests/runs/`)
+
+Create `.claude/playtest/config.md` from their answers using the format described in Project Configuration above.
+
+### Step C: Offer persona and competitive landscape scaffolding
+
+After writing config.md, ask the user:
+
+> I've created your config. Would you also like me to scaffold:
+>
+> 1. **Custom personas** — I'll copy the persona template to `.claude/playtest/personas/` so you can define your real target users. The built-in generic personas work for a first run, but custom personas produce much more useful feedback.
+>
+> 2. **Competitive landscape** — I'll copy the competitive analysis template to `.claude/playtest/competitive_landscape.md` so you can document your competitors. This enables competitive comparisons in playtest reports.
+>
+> You can do either, both, or neither. You can always add these later.
+
+If they want personas: read `templates/persona_template.md` from this skill's directory and write it to `.claude/playtest/personas/persona_template.md`. Tell them to duplicate and fill in this file for each of their target user types.
+
+If they want competitive landscape: read `templates/competitive_landscape_template.md` from this skill's directory and write it to `.claude/playtest/competitive_landscape.md`. Tell them to fill in the sections.
+
+### Step D: Proceed or stop
+
+Ask the user whether they want to run a playtest now (using the generic personas if they haven't filled in custom ones yet) or stop here and fill in their templates first. If they want to run, continue to Step 1 of the Orchestration Flow.
+
 ## Prerequisites
 
 - **Playwright MCP server** must be configured (`.mcp.json` at project root)
-- **Backend and frontend URLs** are read from project config (`.claude/playtest/config.md`) or asked from the user if no config exists
+- **Backend and frontend URLs** are read from project config (`.claude/playtest/config.md`) or collected during First-Time Setup
 
 ## Usage
 
@@ -393,6 +437,10 @@ skills/playtest/
 ├── competitive_landscape.md    ← Competitor profiles + market gap analysis (optional, loaded when writing comparisons)
 ├── personas/
 │   └── {persona_id}.md         ← One file per persona
+├── templates/
+│   ├── competitive_landscape_template.md  ← Template for project-local competitive analysis
+│   ├── persona_template.md                ← Template for creating custom personas
+│   └── project_setup_guide.md             ← Guide for setting up playtests in a project
 ```
 
 **Project-local overrides** (take precedence over plugin defaults, project-specific):

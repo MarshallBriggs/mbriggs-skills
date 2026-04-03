@@ -59,7 +59,7 @@ our tool. Can they produce something they'd feel confident presenting?
 
 ### Step 3: Create custom personas (recommended)
 
-Copy the persona template from `templates/playtest/persona_template.md` and fill it in for your actual target users. If you create ANY persona files in `.claude/playtest/personas/`, they fully replace the plugin defaults — so include all the personas you want tested.
+Copy the persona template from `skills/playtest/templates/persona_template.md` and fill it in for your actual target users. If you create ANY persona files in `.claude/playtest/personas/`, they fully replace the plugin defaults — so include all the personas you want tested.
 
 Tips:
 - Start with 2-3 personas that represent your actual user segments
@@ -69,7 +69,7 @@ Tips:
 
 ### Step 4: Write competitive landscape (recommended)
 
-Copy the template from `templates/playtest/competitive_landscape_template.md` and populate it with real competitor data. This enables the skill to make meaningful competitive comparisons during playtests.
+Copy the template from `skills/playtest/templates/competitive_landscape_template.md` and populate it with real competitor data. This enables the skill to make meaningful competitive comparisons during playtests.
 
 ### Step 5: Customize evaluation framework (optional)
 
