@@ -1,0 +1,12 @@
+{
+  "name": "mbriggs-skills",
+  "version": "1.0.0",
+  "description": "Marshall's Claude Code skills collection. Includes UX playtesting with persona simulation, browser automation, and structured feedback reports.",
+  "author": {
+    "name": "Marshall Briggs",
+    "url": "https://github.com/MarshallBriggs"
+  },
+  "repository": "https://github.com/MarshallBriggs/mbriggs-skills",
+  "license": "MIT",
+  "keywords": ["ux", "playtest", "qa", "testing", "personas", "playwright"]
+}

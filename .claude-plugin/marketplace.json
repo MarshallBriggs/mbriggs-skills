@@ -1,0 +1,15 @@
+{
+  "name": "mbriggs-skills",
+  "owner": {
+    "name": "Marshall Briggs",
+    "url": "https://github.com/MarshallBriggs"
+  },
+  "plugins": [
+    {
+      "name": "mbriggs-skills",
+      "source": "./",
+      "description": "Marshall's Claude Code skills — UX playtesting, and more to come",
+      "version": "1.0.0"
+    }
+  ]
+}
