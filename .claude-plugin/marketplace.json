@@ -8,8 +8,8 @@
     {
       "name": "mbriggs-skills",
       "source": "./",
-      "description": "Marshall's Claude Code skills — UX playtesting, and more to come",
-      "version": "1.0.0"
+      "description": "Marshall's Claude Code skills — UX playtesting with persona simulation, browser smoketesting driven by git diff, and exhaustive design grilling. Bundles Playwright MCP.",
+      "version": "1.1.0"
     }
   ]
 }
