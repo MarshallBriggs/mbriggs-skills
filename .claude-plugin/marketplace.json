@@ -8,8 +8,8 @@
     {
       "name": "mbriggs-skills",
       "source": {
-        "source": "github",
-        "repo": "MarshallBriggs/mbriggs-skills-plugin"
+        "source": "url",
+        "url": "https://github.com/MarshallBriggs/mbriggs-skills-plugin.git"
       },
       "description": "Marshall's Claude Code skills — UX playtesting with persona simulation, browser smoketesting driven by git diff, and exhaustive design grilling. Bundles Playwright MCP."
     }
