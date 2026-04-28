@@ -84,7 +84,7 @@ Ask the user whether they want to run a playtest now (using the generic personas
 
 ## Prerequisites
 
-- **Playwright MCP server** must be configured (`.mcp.json` at project root)
+- **Playwright MCP server** — bundled with this plugin and started automatically when `mbriggs-skills` is enabled. No manual `.mcp.json` setup required.
 - **Backend and frontend URLs** are read from project config (`.claude/playtest/config.md`) or collected during First-Time Setup
 
 ## Usage
